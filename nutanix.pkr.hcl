@@ -39,17 +39,17 @@ variable "iso_checksum_type" {
 
 variable "iso_url" {
   type    = string
-  default = "C:\\path\\to\\2019.iso"
+  default = "C:\\iso\\2019\\Server_10.0.17763.2452.iso"
 }
 
 variable "output_directory" {
   type    = string
-  default = "C:\\path\\to\\outputdir"
+  default = "C:\\_PackerNutanix\\vm\\win2019-qemu"
 }
 
 variable "sysprep_unattended" {
   type    = string
-  default = "C:\\path\\to\\unattend.xml"
+  default = "C:\\_PackerNutanix\\unattend.xml"
 }
 
 variable "upgrade_timeout" {
@@ -78,14 +78,17 @@ source "qemu" "template" {
   winrm_timeout    = "8h"
   winrm_username   = "Administrator"
   floppy_files = [
-    "C:\\path\\to\\scripts\\bootstrap.ps1",
-    "C:\\path\\to\\files\\autounattend.xml",
-    "C:\\path\\to\\files\\Nutanix-VirtIO-1.1.7\\Windows Server 2019\\amd64\\vioscsi.cat",
-    "C:\\path\\to\\files\\Nutanix-VirtIO-1.1.7\\Windows Server 2019\\amd64\\vioscsi.inf",
-    "C:\\path\\to\\files\\Nutanix-VirtIO-1.1.7\\Windows Server 2019\\amd64\\vioscsi.sys",
-    "C:\\path\\to\\files\\Nutanix-VirtIO-1.1.7\\Windows Server 2019\\amd64\\netkvm.cat",
-    "C:\\path\\to\\files\\Nutanix-VirtIO-1.1.7\\Windows Server 2019\\amd64\\netkvm.inf",
-    "C:\\path\\to\\files\\Nutanix-VirtIO-1.1.7\\Windows Server 2019\\amd64\\netkvm.sys"
+    "C:\\_PackerNutanix\\files\\bootstrap.ps1",
+    "C:\\_PackerNutanix\\files\\autounattend.xml",
+    "C:\\_PackerNutanix\\files\\Nutanix-VirtIO-1.1.7\\Windows Server 2019\\amd64\\vioscsi.cat",
+    "C:\\_PackerNutanix\\files\\Nutanix-VirtIO-1.1.7\\Windows Server 2019\\amd64\\vioscsi.inf",
+    "C:\\_PackerNutanix\\files\\Nutanix-VirtIO-1.1.7\\Windows Server 2019\\amd64\\vioscsi.sys",
+    "C:\\_PackerNutanix\\files\\Nutanix-VirtIO-1.1.7\\Windows Server 2019\\amd64\\netkvm.cat",
+    "C:\\_PackerNutanix\\files\\Nutanix-VirtIO-1.1.7\\Windows Server 2019\\amd64\\netkvm.inf",
+    "C:\\_PackerNutanix\\files\\Nutanix-VirtIO-1.1.7\\Windows Server 2019\\amd64\\netkvm.sys",
+    "C:\\_PackerNutanix\\files\\virtio-win-0.1.215\\viostor\\2k19\\amd64\\*.cat",
+    "C:\\_PackerNutanix\\files\\virtio-win-0.1.215\\viostor\\2k19\\amd64\\*.inf",
+    "C:\\_PackerNutanix\\files\\virtio-win-0.1.215\\viostor\\2k19\\amd64\\*.sys",
   ]
   qemuargs = [
     ["-m", "8000"],
